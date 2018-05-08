@@ -1,0 +1,183 @@
+>runtest.bat
+
+>rem Test fingerprinting with original data
+
+>cd code\originalcode
+
+>python test_fingerprint.py
+2018-04-11 12:02:50 [10304] WARNING Fingerprint found in modulus 0 idx 0
+2018-04-11 12:02:50 [10304] WARNING Fingerprint found in modulus 1 idx 0
+2018-04-11 12:02:50 [10304] WARNING Fingerprint found in modulus 2 idx 0
+2018-04-11 12:02:50 [10304] WARNING Fingerprint found in modulus 3 idx 0
+2018-04-11 12:02:50 [10304] WARNING Fingerprint found in modulus 4 idx 0
+2018-04-11 12:02:50 [10304] WARNING Fingerprint found in modulus 5 idx 0
+2018-04-11 12:02:50 [10304] WARNING Fingerprint found in modulus 6 idx 0
+2018-04-11 12:02:50 [10304] WARNING Fingerprint found in modulus 7 idx 0
+2018-04-11 12:02:50 [10304] WARNING Fingerprint found in modulus 8 idx 0
+2018-04-11 12:02:50 [10304] WARNING Fingerprint found in modulus 9 idx 0
+.2018-04-11 12:02:50 [10304] WARNING Fingerprint found in the Certificate cert04.pem idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in the Certificate cert05.pem idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in the CSR csr05.pem idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in PGP key key04.pgp key ID 0x85052d6915c34dc4
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in PGP key key04.pgp key ID 0x6f2887dba4bbd140
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in PGP key key04.pgp key ID 0x69825656415676c0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in modulus mod01.txt idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in modulus mod02.txt idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in modulus mod03.txt idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in modulus mod08.txt idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in modulus mod09.txt idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in PEM RSA key privkey05.pem
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in PEM RSA key pubkey03.pem
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in the SSH key ssh06.pub idx 0
+.2018-04-11 12:02:51 [10304] WARNING Fingerprint found in the Certificate cert04.pem idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in the Certificate cert05.pem idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in the CSR csr05.pem idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in PGP key key04.pgp key ID 0x85052d6915c34dc4
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in PGP key key04.pgp key ID 0x6f2887dba4bbd140
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in PGP key key04.pgp key ID 0x69825656415676c0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in modulus mod01.txt idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in modulus mod02.txt idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in modulus mod03.txt idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in modulus mod08.txt idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in modulus mod09.txt idx 0
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in PEM RSA key privkey05.pem
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in PEM RSA key pubkey03.pem
+2018-04-11 12:02:51 [10304] WARNING Fingerprint found in the SSH key ssh06.pub idx 0
+..
+----------------------------------------------------------------------
+Ran 4 tests in 0.234s
+
+OK
+
+>python test_tls.py
+2018-04-11 12:02:51 [10872] INFO Fetching server certificate from google.com:443
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.468s
+
+OK
+
+>python detect.py
+2018-04-11 12:02:52 [8328] INFO ### SUMMARY ####################
+2018-04-11 12:02:52 [8328] INFO Records tested: 0
+2018-04-11 12:02:52 [8328] INFO .. PEM certs: . . . 0
+2018-04-11 12:02:52 [8328] INFO .. DER certs: . . . 0
+2018-04-11 12:02:52 [8328] INFO .. RSA key files: . 0
+2018-04-11 12:02:52 [8328] INFO .. PGP master keys: 0
+2018-04-11 12:02:52 [8328] INFO .. PGP total keys:  0
+2018-04-11 12:02:52 [8328] INFO .. SSH keys:  . . . 0
+2018-04-11 12:02:52 [8328] INFO .. APK keys:  . . . 0
+2018-04-11 12:02:52 [8328] INFO .. JSON keys: . . . 0
+2018-04-11 12:02:52 [8328] INFO .. LDIFF certs: . . 0
+2018-04-11 12:02:52 [8328] INFO .. JKS certs: . . . 0
+2018-04-11 12:02:52 [8328] INFO .. PKCS7: . . . . . 0
+2018-04-11 12:02:52 [8328] INFO No fingerprinted keys found (OK)
+2018-04-11 12:02:52 [8328] INFO ################################
+
+>rem Test fingerprinting with custom data
+
+>rem Test tls fingerprinting with Top10 most visited Websites (APR 2018)
+
+>python detect_tls.py ..\..\data\tlslist_top10.txt
+2018-04-11 12:02:52 [4460] INFO Fetching server certificate from Facebook.com:443
+2018-04-11 12:02:52 [4460] INFO Fetching server certificate from Twitter.com:443
+2018-04-11 12:02:52 [4460] INFO Fetching server certificate from Google.com:443
+2018-04-11 12:02:52 [4460] INFO Fetching server certificate from Youtube.com:443
+2018-04-11 12:02:53 [4460] INFO Fetching server certificate from Instagram.com:443
+2018-04-11 12:02:53 [4460] INFO Fetching server certificate from Linkedin.com:443
+2018-04-11 12:02:54 [4460] INFO Fetching server certificate from Wordpress.org:443
+2018-04-11 12:02:54 [4460] INFO Fetching server certificate from Pinterest.com:443
+2018-04-11 12:02:54 [4460] INFO Fetching server certificate from Wikipedia.org:443
+2018-04-11 12:02:54 [4460] INFO Fetching server certificate from Wordpress.com:443
+2018-04-11 12:02:54 [4460] INFO No fingerprinted keys found (OK)
+
+>rem Generating custom non vulnerable keys
+
+>cd ..
+
+>python generate_non_vulnerable_key.py 512  1>..\data\non_vulnerable_keys\custom_mod1_512.txt
+
+>python generate_non_vulnerable_key.py 768  1>..\data\non_vulnerable_keys\custom_mod2_768.txt
+
+>python generate_non_vulnerable_key.py 1024  1>..\data\non_vulnerable_keys\custom_mod3_1024.txt
+
+>python generate_non_vulnerable_key.py 2048  1>..\data\non_vulnerable_keys\custom_mod4_2048.txt
+
+>rem this costs a lot of resources. uncomment if you have a lot of time or computing power
+
+>rem python generate_non_vulnerable_key.py 4096 > ..\data\non_vulnerable_keys\custom_mod5_4096.txt
+
+>rem Test custom non vulnerable keys
+
+>cd originalcode
+
+>python detect.py ..\..\data\non_vulnerable_keys\
+2018-04-11 12:04:02 [4896] INFO ### SUMMARY ####################
+2018-04-11 12:04:02 [4896] INFO Records tested: 4
+2018-04-11 12:04:02 [4896] INFO .. PEM certs: . . . 0
+2018-04-11 12:04:02 [4896] INFO .. DER certs: . . . 0
+2018-04-11 12:04:02 [4896] INFO .. RSA key files: . 0
+2018-04-11 12:04:02 [4896] INFO .. PGP master keys: 0
+2018-04-11 12:04:02 [4896] INFO .. PGP total keys:  0
+2018-04-11 12:04:02 [4896] INFO .. SSH keys:  . . . 0
+2018-04-11 12:04:02 [4896] INFO .. APK keys:  . . . 0
+2018-04-11 12:04:02 [4896] INFO .. JSON keys: . . . 0
+2018-04-11 12:04:02 [4896] INFO .. LDIFF certs: . . 0
+2018-04-11 12:04:02 [4896] INFO .. JKS certs: . . . 0
+2018-04-11 12:04:02 [4896] INFO .. PKCS7: . . . . . 0
+2018-04-11 12:04:02 [4896] INFO No fingerprinted keys found (OK)
+2018-04-11 12:04:02 [4896] INFO ################################
+
+>rem Generating custom vulnerable keys
+
+>cd ..
+
+>python generate_vulnerable_key.py 512  1>..\data\vulnerable_keys\custom_mod1_512.txt
+
+>python generate_vulnerable_key.py 768  1>..\data\vulnerable_keys\custom_mod2_768.txt
+
+>python generate_vulnerable_key.py 1024  1>..\data\vulnerable_keys\custom_mod3_1024.txt
+
+>python generate_vulnerable_key.py 2048  1>..\data\vulnerable_keys\custom_mod4_2048.txt
+
+>rem  python generate_vulnerable_key.py 4096 > ..\data\vulnerable_keys\custom_mod5_4096.txt
+
+>rem Test custom vulnerable keys
+
+>cd originalcode
+
+>python detect.py ..\..\data\vulnerable_keys\
+2018-04-11 12:04:12 [9816] WARNING Fingerprint found in modulus custom_mod1_512.txt idx 0
+{"type": "mod-hex", "fname": "custom_mod1_512.txt", "idx": 0, "aux": null, "n": "0x134a810e17d807ca05ddf2c65aa41ca03442f38ff5eba57c062d1c101f1d17d5922642abab104c346e2cb780eb013d9ec05795b37c35ffb78ca122971735701c7", "marked": true, "time_years": 0.00013349807611760526, "price_aws_c4": 0.05851220676234639}
+2018-04-11 12:04:12 [9816] WARNING Fingerprint found in modulus custom_mod2_768.txt idx 0
+{"type": "mod-hex", "fname": "custom_mod2_768.txt", "idx": 0, "aux": null, "n": "0x127989ca2ab885bd8a5f575a251ebced5a9acba6f1343395acb552bae5c6c59975fcf603117176be2e005fe7e5678e4719789ad2f9bbb2402856918f7eabc7093eecc30d04d7162d52cc8dbcff4613bac12a2bc605f72a0466178de896365e0ef", "marked": true, "time_years": 207408.4996783158, "price_aws_c4": 90907145.40900582}
+2018-04-11 12:04:12 [9816] WARNING Fingerprint found in modulus custom_mod3_1024.txt idx 0
+{"type": "mod-hex", "fname": "custom_mod3_1024.txt", "idx": 0, "aux": null, "n": "0x135e018667e291ef440b1eb8a2ea77a61500a900abac7b08c426bab42c2375bd6c6b19a24dbd589cf4e2dca29ba8cc62031c1ff7e7defcdcdfea43d59e4ac5f98e072616926b27b61b2282afb098af71a2055ed747b9cee1cfbaca8bcf6e3accd4cbc21b997ab987a80cd3378cf395582e5052d831f0cac0a7e20e84d2471a9fb", "marked": true, "time_years": 0.16104529886799998, "price_aws_c4": 70.5861544938444}
+2018-04-11 12:04:12 [9816] WARNING Fingerprint found in modulus custom_mod4_2048.txt idx 0
+{"type": "mod-hex", "fname": "custom_mod4_2048.txt", "idx": 0, "aux": null, "n": "0x14647fad11b6375f1c3e011cd7a00152302e06a3155d7bc6731b258d242c9b7e4541a0f9a262f8da4fe5cb74560486cea57a20f5d053a279351977f35efde20934b41f8d389d56d5d3495e81a4056815d6c1640fb56b631fc1d0e63c0edb647bf6f7aa6b152d671178ad1e41ff264a71fdf032f449c0e4660115d2097a38d3a6441f1af26ee46dd5334a4bc7b1400f2a3bb4cf1742745b5bbd7cf7562743d9b57122685c622355a7ce51c31696bbb473014ae434d87e5757259dc2c8f212b1d50dd650fe78adf495e7e5650cee17b56639131c060ac13f19e26afd2bb46d7e1f9eb0f892a68028559404755fb3c75ad2fd269c3a8c7ea9dd8b27348f37c2209bb", "marked": true, "time_years": 85.25100750352632, "price_aws_c4": 37365.516588795595}
+2018-04-11 12:04:12 [9816] INFO ### SUMMARY ####################
+2018-04-11 12:04:12 [9816] INFO Records tested: 4
+2018-04-11 12:04:12 [9816] INFO .. PEM certs: . . . 0
+2018-04-11 12:04:12 [9816] INFO .. DER certs: . . . 0
+2018-04-11 12:04:12 [9816] INFO .. RSA key files: . 0
+2018-04-11 12:04:12 [9816] INFO .. PGP master keys: 0
+2018-04-11 12:04:12 [9816] INFO .. PGP total keys:  0
+2018-04-11 12:04:12 [9816] INFO .. SSH keys:  . . . 0
+2018-04-11 12:04:12 [9816] INFO .. APK keys:  . . . 0
+2018-04-11 12:04:12 [9816] INFO .. JSON keys: . . . 0
+2018-04-11 12:04:12 [9816] INFO .. LDIFF certs: . . 0
+2018-04-11 12:04:12 [9816] INFO .. JKS certs: . . . 0
+2018-04-11 12:04:12 [9816] INFO .. PKCS7: . . . . . 0
+2018-04-11 12:04:12 [9816] INFO Fingerprinted keys found: 4
+2018-04-11 12:04:12 [9816] INFO WARNING: Potential vulnerability
+2018-04-11 12:04:12 [9816] INFO ################################
+
+>rem This is not yet implemented due to lack of sourcecode
+
+>rem Factorizing vulnerable key mod01.txt
+
+>rem     python factorize ..\dataoriginaldata\mod01.txt
+
+>rem Factorizing 512 bit vulnerable key custom_mod1.txt
+
+>rem     python factorize ..\data\vulnerable_keys\custom_mod1.txtr
