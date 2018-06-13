@@ -4,7 +4,7 @@ import copy
 import sys
 
 '''
-Original Code by "basavesh": https://gist.github.com/basavesh/3885594
+Original Code by Basavesh Shivakumar, GitHub/"basavesh": https://gist.github.com/basavesh/3885594
 
 Modifications by Bernhard Brenner
 '''

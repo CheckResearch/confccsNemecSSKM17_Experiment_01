@@ -7,7 +7,7 @@ import sympy.ntheory as nt
 import argparse
 
 '''
-Original Code by "basavesh": https://gist.github.com/basavesh/3885594
+Original Code by Basavesh Shivakumar, GitHub/"basavesh": https://gist.github.com/basavesh/3885594
 and Matus Nemec et al.
 
 In this version, findAPrime is changed so that the primes generated are vulnerable

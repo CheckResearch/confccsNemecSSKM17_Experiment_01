@@ -15,7 +15,7 @@ echo Generating custom non vulnerable keys
 	python generate_non_vulnerable_key.py 512 > ..\data\non_vulnerable_keys\custom_mod1_512.txt
 	python generate_non_vulnerable_key.py 768 > ..\data\non_vulnerable_keys\custom_mod2_768.txt
 	python generate_non_vulnerable_key.py 1024 > ..\data\non_vulnerable_keys\custom_mod3_1024.txt
-	python generate_non_vulnerable_key.py 2048 > ..\data\non_vulnerable_keys\custom_mod4_2048.txt
+	rem python generate_non_vulnerable_key.py 2048 > ..\data\non_vulnerable_keys\custom_mod4_2048.txt
 	rem this costs quite a lot of resources (at least in this non-optimized implementation). uncomment if you have a lot of time or computing power
 	rem python generate_non_vulnerable_key.py 4096 > ..\data\non_vulnerable_keys\custom_mod5_4096.txt
 
@@ -28,7 +28,7 @@ echo Generating custom vulnerable keys
 	python generate_vulnerable_key.py 512 > ..\data\vulnerable_keys\custom_mod1_512.txt
 	python generate_vulnerable_key.py 768 > ..\data\vulnerable_keys\custom_mod2_768.txt
 	python generate_vulnerable_key.py 1024 > ..\data\vulnerable_keys\custom_mod3_1024.txt
-	python generate_vulnerable_key.py 2048 > ..\data\vulnerable_keys\custom_mod4_2048.txt
+	rem python generate_vulnerable_key.py 2048 > ..\data\vulnerable_keys\custom_mod4_2048.txt
 	rem	python generate_vulnerable_key.py 4096 > ..\data\vulnerable_keys\custom_mod5_4096.txt
 	
 echo Test custom vulnerable keys
